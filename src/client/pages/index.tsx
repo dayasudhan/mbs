@@ -4,12 +4,10 @@ import Link from 'next/link';
 const Home: NextPage = () => {
   return (
     <h1 className="title">
-      Read{' '}
-      <Link href="/buyer/landing/landing">
-        <a>Buyer!</a>
-      </Link>
-      <Link href="/seller/home">
-        <a>Seller!</a>
+      Hello Pescon{' '}
+
+      <Link href="/pescon/home">
+        <a>pescon!</a>
       </Link>
     </h1>
   );
