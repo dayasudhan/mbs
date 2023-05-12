@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import { Table } from 'semantic-ui-react';
+//import './table.css'
 function CustomerListComponent() {
   const [data, setData] = useState([]);
 
@@ -16,26 +17,28 @@ function CustomerListComponent() {
 
   return (
     <div>
-      <h1>Customer List</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Phone</th>
-            <th>Email</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map(item => (
-            <tr key={item.id}>
-              <td>{item.name}</td>
-              <td>{item.phone}</td>
-              <td>{item.email}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+    <h1>Data Table</h1>
+    <Table celled striped>
+      <Table.Header>
+        <Table.Row>
+          <Table.HeaderCell width={1}>#</Table.HeaderCell>
+          <Table.HeaderCell width={5}>Name</Table.HeaderCell>
+          <Table.HeaderCell width={4}>Phone</Table.HeaderCell>
+          <Table.HeaderCell width={6}>Email</Table.HeaderCell>
+        </Table.Row>
+      </Table.Header>
+      <Table.Body>
+        {data.map((item, index) => (
+          <Table.Row key={item.id}>
+            <Table.Cell>{index + 1}</Table.Cell>
+            <Table.Cell>{item.name}</Table.Cell>
+            <Table.Cell>{item.phone}</Table.Cell>
+            <Table.Cell>{item.email}</Table.Cell>
+          </Table.Row>
+        ))}
+      </Table.Body>
+    </Table>
+  </div>
   );
 }
 
