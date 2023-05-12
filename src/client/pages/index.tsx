@@ -1,6 +1,7 @@
 import { React } from 'react';
 import { NextPage } from 'next';
 import Link from 'next/link';
+// import '../styles/global.css'
 const Home: NextPage = () => {
   return (
     <h1 className="title">
@@ -10,7 +11,10 @@ const Home: NextPage = () => {
         <a>pescon!</a>
       </Link>
       <Link href="/pescon/list">
-        <a>Cstomer List!</a>
+        <a>Customer List!</a>
+      </Link>
+      <Link href="/pescon/input">
+        <a>input!</a>
       </Link>
     </h1>
   );
