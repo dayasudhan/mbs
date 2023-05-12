@@ -8,22 +8,22 @@ const CustomerForm = () => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
-  const [contacts, setContacts] = useState('')
-  useEffect(() => {
-    axios.get('/api')
-    .then(response => {
-      console.log("jsonData", response.data)
-      setContacts(response.data);
-    })
-    .catch(error => {
-      console.error("error",error);
-    });
-  }, []);
-  const contacts2 = [
-    { name: 'Alice', phone: '123-456-7890' },
-    { name: 'Bob', phone: '987-654-3210' },
-    { name: 'Charlie', phone: '555-555-5555' }
-  ];
+  // const [contacts, setContacts] = useState('')
+  // useEffect(() => {
+  //   axios.get('/api')
+  //   .then(response => {
+  //     console.log("jsonData", response.data)
+  //     setContacts(response.data);
+  //   })
+  //   .catch(error => {
+  //     console.error("error",error);
+  //   });
+  // }, []);
+  // const contacts2 = [
+  //   { name: 'Alice', phone: '123-456-7890' },
+  //   { name: 'Bob', phone: '987-654-3210' },
+  //   { name: 'Charlie', phone: '555-555-5555' }
+  // ];
   // setContacts(contacts2);
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -40,7 +40,7 @@ const CustomerForm = () => {
   }
 
   return (
-    <div>
+  
     <div>
     <Form onSubmit={handleSubmit}>
       <Form.Input
@@ -64,11 +64,8 @@ const CustomerForm = () => {
       <Button type="submit">Submit</Button>
     </Form>
     </div>
-    <div>
-    <h1>My App</h1>
-      <ContactListComponent contacts={contacts2} />
-    </div>
-    </div>
+
+ 
   )
 }
 
