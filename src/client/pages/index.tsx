@@ -16,6 +16,9 @@ const Home: NextPage = () => {
       <Link href="/pescon/input">
         <a>input!</a>
       </Link>
+      <Link href="/buyer/checkout/checkout">
+        <a>Customer Input!</a>
+      </Link>
     </h1>
   );
 };
