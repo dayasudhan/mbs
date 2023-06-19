@@ -14,6 +14,7 @@ import {
 import {
   MongooseModule
 } from '@nestjs/mongoose';
+import { PdfService } from './pdf.service';
 
 @Module({
   imports: [
@@ -25,6 +26,6 @@ import {
    ])
   ],
   controllers: [LeadsController],
-  providers: [LeadsService]
+  providers: [LeadsService,PdfService]
 })
 export class LeadsModule {}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Table } from 'semantic-ui-react';
+import { Table,Button } from 'semantic-ui-react';
 //import './table.css'
 function CustomerListComponent() {
   const [data, setData] = useState([]);
@@ -14,9 +14,21 @@ function CustomerListComponent() {
         console.log(error);
       });
   }, []);
-
+  const handleButtonClick = () => {
+    // Make API call using fetch
+    axios.get('/pdf')
+      .then(response => {
+        setData(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
   return (
     <div>
+    <Button color="primary" onClick={handleButtonClick}>
+      PDf
+    </Button>
     <h1>Data Table</h1>
     <Table celled striped>
       <Table.Header>

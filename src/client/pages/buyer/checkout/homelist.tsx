@@ -5,9 +5,9 @@ import Header from '../landing/header';
 import Header2 from '../landing/header2';
 import Footer from '../landing/footer';
 import 'semantic-ui-css/semantic.css';
-import PersonDetails from './details';
+import PersonDetails from '../../pescon/list';
 
-export default class Cart extends Component {
+export default class HomeList extends Component {
   render() {
     return (
       <Segment>

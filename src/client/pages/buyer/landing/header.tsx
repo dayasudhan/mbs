@@ -1,24 +1,36 @@
 import React, { Component } from 'react';
 import { Menu, Input } from 'semantic-ui-react';
-
-export default class Header extends Component {
-  state = { activeItem: 'home' };
-
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
+// import { Router   } from 'next/router';
+export default class Header extends React.Component {
+  
+  state = { 
+    activeItem: 'home' ,
+    homelistrefLink: '/buyer/checkout/homelist',
+    homerefLink: '/buyer/checkout/checkout'
+};
+  //router = useRouter();
+  handleItemClick = (e, { name ,href}) => {
+    //const { router } = Router;
+    this.setState({ activeItem: name })
+    this.setState({ refLink: href });
+    //router.push('/pescon/list');
+};
 
   render() {
-    const { activeItem } = this.state;
+    const { activeItem,homelistrefLink,homerefLink } = this.state;
 
     return (
       <Menu inverted seconday pointing size="mini" color="blue">
         <Menu.Item
-          name="home"
+          name="Home"
           active={activeItem === 'home'}
+          href={homerefLink}
           onClick={this.handleItemClick}
         />
         <Menu.Item
-          name="Equipments"
+          name="List"
           active={activeItem === 'equipments'}
+          href={homelistrefLink}
           onClick={this.handleItemClick}
         />
         <Menu.Item

@@ -17,7 +17,8 @@ import {
   Leads,
   LeadsDocument
 } from '../schemas/leads.schema';
-
+import * as puppeteer from 'puppeteer'
+import { Readable } from 'stream'
 @Injectable()
 export class LeadsService {
 
@@ -44,5 +45,70 @@ export class LeadsService {
 
   async remove(id: string) {
     return this.leadsModel.findByIdAndRemove(id);
+  }
+  async generatePDF() {
+    const outputpath = 'C:\\Users\\Admin\\Downloads\\output.pdf';
+    console.log("generatePDF 0000 .................")
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    const pageopts: puppeteer.PDFOptions = {
+      format: 'letter',
+      printBackground: true,
+      margin: { top: '0px', bottom: '0px', left: '0px', right: '0px' },
+      preferCSSPageSize: true,
+    }
+    await page.goto('http://localhost:3000/buyer/checkout/homelist'); // Replace with the URL or HTML content you want to generate PDF from
+  
+    await page.pdf({
+      path: outputpath, // Specify the path where the PDF file will be saved
+      format: 'A4' // Specify the page format (e.g., 'A4', 'Letter', etc.)
+    });
+    console.log(`generatePDF 123 ${outputpath} `)
+    await browser.close();
+  }
+  async printPDF() {
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto("https://news.ycombinator.com/", {
+      waitUntil: "networkidle2"
+    });
+    await page.setViewport({ width: 1680, height: 1050 });
+    await page.pdf({
+      path: "hacker_news.pdf",
+      format: "A4",
+      printBackground: true  
+    });
+  
+    await browser.close();
+    return "daya"
+  }
+  async pp()
+  {
+    const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+
+  await page.goto('https://developer.chrome.com/');
+
+  // Set screen size
+  await page.setViewport({width: 1080, height: 1024});
+
+  // Type into search box
+  await page.type('.search-box__input', 'automate beyond recorder');
+
+  // Wait and click on first result
+  const searchResultSelector = '.search-box__link';
+  await page.waitForSelector(searchResultSelector);
+  await page.click(searchResultSelector);
+
+  // Locate the full title with a unique string
+  const textSelector = await page.waitForSelector(
+    'text/Customize and automate'
+  );
+  const fullTitle = await textSelector?.evaluate(el => el.textContent);
+
+  // Print the full title
+  console.log('The title of this blog post is "%s".', fullTitle);
+
+  await browser.close();
   }
 }

@@ -31,7 +31,11 @@ export class LeadsController {
     console.log("Leads findall")
     return this.leadsService.findAll();
   }
-
+  @Get('/pdf')
+  findAll2() {
+    console.log("PDF Generation")
+    return this.leadsService.generatePDF();
+  }
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.leadsService.findOne(id);
@@ -46,4 +50,6 @@ export class LeadsController {
   remove(@Param('id') id: string) {
     return this.leadsService.remove(id);
   }
+
+
 }
