@@ -47,7 +47,8 @@ export class LeadsService {
     return this.leadsModel.findByIdAndRemove(id);
   }
   async generatePDF() {
-    const outputpath = 'C:\\Users\\Admin\\Downloads\\output.pdf';
+    
+    const outputpath = 'C:\\Users\\Admin\\Downloads\\cus_info.pdf';
     console.log("generatePDF 0000 .................")
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
@@ -57,7 +58,7 @@ export class LeadsService {
       margin: { top: '0px', bottom: '0px', left: '0px', right: '0px' },
       preferCSSPageSize: true,
     }
-    await page.goto('http://localhost:3000/buyer/checkout/homelist'); // Replace with the URL or HTML content you want to generate PDF from
+    await page.goto('http://localhost:3000/buyer/checkout/info'); // Replace with the URL or HTML content you want to generate PDF from
   
     await page.pdf({
       path: outputpath, // Specify the path where the PDF file will be saved

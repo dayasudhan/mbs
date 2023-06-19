@@ -14,21 +14,15 @@ function CustomerListComponent() {
         console.log(error);
       });
   }, []);
-  const handleButtonClick = () => {
+
+  const handleDetailButtonClick = (id) => {
     // Make API call using fetch
-    axios.get('/pdf')
-      .then(response => {
-        setData(response.data);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+   console.log("handleDetailButtonClick",id)
+   window.open(`/buyer/checkout/info`, '_blank');
   };
   return (
     <div>
-    <Button color="primary" onClick={handleButtonClick}>
-      PDf
-    </Button>
+   
     <h1>Data Table</h1>
     <Table celled striped>
       <Table.Header>
@@ -37,6 +31,7 @@ function CustomerListComponent() {
           <Table.HeaderCell width={5}>Name</Table.HeaderCell>
           <Table.HeaderCell width={4}>Phone</Table.HeaderCell>
           <Table.HeaderCell width={6}>Email</Table.HeaderCell>
+          <Table.HeaderCell width={1}></Table.HeaderCell>
         </Table.Row>
       </Table.Header>
       <Table.Body>
@@ -46,6 +41,9 @@ function CustomerListComponent() {
             <Table.Cell>{item.name}</Table.Cell>
             <Table.Cell>{item.phone}</Table.Cell>
             <Table.Cell>{item.email}</Table.Cell>
+            <Table.Cell>
+            <Button color="primary" onClick={() => handleDetailButtonClick(index)}>Detail</Button>
+            </Table.Cell> {/* Add a button to each row */}
           </Table.Row>
         ))}
       </Table.Body>

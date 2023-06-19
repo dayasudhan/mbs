@@ -6,7 +6,8 @@ export default class Header extends React.Component {
   state = { 
     activeItem: 'home' ,
     homelistrefLink: '/buyer/checkout/homelist',
-    homerefLink: '/buyer/checkout/checkout'
+    homerefLink: '/buyer/checkout/checkout',
+    inforefLink: '/buyer/checkout/info'
 };
   //router = useRouter();
   handleItemClick = (e, { name ,href}) => {
@@ -17,7 +18,7 @@ export default class Header extends React.Component {
 };
 
   render() {
-    const { activeItem,homelistrefLink,homerefLink } = this.state;
+    const { activeItem,homelistrefLink,homerefLink,inforefLink } = this.state;
 
     return (
       <Menu inverted seconday pointing size="mini" color="blue">
@@ -34,7 +35,8 @@ export default class Header extends React.Component {
           onClick={this.handleItemClick}
         />
         <Menu.Item
-          name="Plants"
+          name="CustoMer Detail"
+          href={inforefLink}
           active={activeItem === 'plants'}
           onClick={this.handleItemClick}
         />
