@@ -3,7 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ViewModule } from './modules/view/view.module';
 import { CommonModule } from './common/common.module';
-import { BuyerModule } from './buyer/buyer.module';
+// import { BuyerModule } from './buyer/buyer.module';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { LeadsModule } from './leads/leads.module';
@@ -13,11 +13,11 @@ const MONGOURI3 ='mongodb+srv://dayasudhankg:sudhan@cluster0.fkayncs.mongodb.net
 const MONGOURI4 ='mongodb://127.0.0.1:27017/farm';
 @Module({
   imports: [
-    CommonModule,
+    //CommonModule,
     LeadsModule,
-    BuyerModule,
+    //BuyerModule,
     ViewModule,
-    MongooseModule.forRoot(MONGOURI4),
+    MongooseModule.forRoot(MONGOURI),
     
     //"mongodb+srv://heroku_mhgndgwl:sudhan@cluster0.3b3lz.mongodb.net/?retryWrites=true&w=majority";
   ],
