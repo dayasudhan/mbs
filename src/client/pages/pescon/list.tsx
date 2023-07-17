@@ -45,10 +45,8 @@ function CustomerListComponent() {
             <Table.Cell>{item.phone}</Table.Cell>
             <Table.Cell>{item.email}</Table.Cell>
             <Table.Cell>
-              {/* <Link to="/buyer/checkout/info">Cell Content</Link> */}
-        </Table.Cell>
-            <Table.Cell>
             <Button color="primary" onClick={() => handleDetailButtonClick(item._id)}>Detail</Button>
+            
             </Table.Cell> {/* Add a button to each row */}
           </Table.Row>
         ))}

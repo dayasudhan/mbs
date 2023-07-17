@@ -11,7 +11,7 @@ export default class HomeList extends Component {
   render() {
     return (
       <Segment>
-        {/* <Header /> */}
+        <Header />
         <Info/>
         {/* <Footer /> */}
       </Segment>

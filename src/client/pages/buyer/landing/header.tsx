@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Menu, Input } from 'semantic-ui-react';
 // import { Router   } from 'next/router';
+import axios from 'axios';
 export default class Header extends React.Component {
   
   state = { 
@@ -16,7 +17,19 @@ export default class Header extends React.Component {
     this.setState({ refLink: href });
     //router.push('/pescon/list');
 };
-
+handlePdfItemClick = (e, { name ,href}) => {
+  console.log("handlePdfItemClick")
+  const searchParams = new URLSearchParams(window.location.search);
+  const id = searchParams.get('id');
+  console.log('id:', id);
+  axios.get('/leads/pdf?id='+id)
+  .then(response => {
+    console.log("response",response.data);
+  })
+  .catch(error => {
+    console.log(error);
+  });
+};
   render() {
     const { activeItem,homelistrefLink,homerefLink,inforefLink } = this.state;
 
@@ -45,6 +58,11 @@ export default class Header extends React.Component {
             <Input icon="search" placeholder="Search..." />
           </Menu.Item>
         </Menu.Menu>
+        <Menu.Item
+            name="PDF"
+            active={activeItem === 'Register'}
+            onClick={this.handlePdfItemClick}
+          />
         {/* <Menu.Menu position="right">
           <Menu.Item
             name="Register"

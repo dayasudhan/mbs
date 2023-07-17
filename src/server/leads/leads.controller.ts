@@ -25,7 +25,7 @@ export class LeadsController {
   @Post('')
   create(@Body() createLeadsDto: CreateLeadsDto) {
     return this.leadsService.create(createLeadsDto);
-  }
+  } 
 
   @Get('')
   findAll() {
@@ -33,9 +33,10 @@ export class LeadsController {
     return this.leadsService.findAll();
   }
   @Get('/pdf')
-  findAll2() {
-    console.log("PDF Generation")
-    return this.leadsService.generatePDF();
+  findAll2(@Query('id') id: string) {
+    console.log("PDF Generation",id)
+    
+    return this.leadsService.generatePDF(id);
   }
   // @Get('/leads')
   // findOne(@Query('id') id: string) {

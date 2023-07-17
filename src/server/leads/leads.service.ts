@@ -19,6 +19,8 @@ import {
 } from '../schemas/leads.schema';
 import * as puppeteer from 'puppeteer'
 import { Readable } from 'stream'
+const os = require('os');
+const path = require('path');
 @Injectable()
 export class LeadsService {
 
@@ -46,9 +48,14 @@ export class LeadsService {
   async remove(id: string) {
     return this.leadsModel.findByIdAndRemove(id);
   }
-  async generatePDF() {
-    
-    const outputpath = 'C:\\Users\\Admin\\Downloads\\cus_info.pdf';
+  getWindowsDownloadFolderPath() {
+    const homeDir = os.homedir();
+    const downloadFolderPath = path.join(homeDir, 'Downloads');
+    return downloadFolderPath;
+  }
+  async generatePDF(id:string) {
+    const downloadPath = this.getWindowsDownloadFolderPath();
+    const outputpath = `${downloadPath}\\leads_${id}.pdf`;
     console.log("generatePDF 0000 .................")
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
@@ -58,7 +65,10 @@ export class LeadsService {
       margin: { top: '0px', bottom: '0px', left: '0px', right: '0px' },
       preferCSSPageSize: true,
     }
-    await page.goto('http://localhost:3000/buyer/checkout/info'); // Replace with the URL or HTML content you want to generate PDF from
+  
+    let url = 'http://localhost:3000/buyer/checkout/info/?id=' +id;
+    console.log("url",url,)
+    await page.goto(url); // Replace with the URL or HTML content you want to generate PDF from
   
     await page.pdf({
       path: outputpath, // Specify the path where the PDF file will be saved
