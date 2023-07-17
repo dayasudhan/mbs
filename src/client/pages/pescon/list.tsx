@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Table,Button } from 'semantic-ui-react';
+import {BrowserRouter, Link } from 'react-router-dom';
 //import './table.css'
 function CustomerListComponent() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios.get('/api')
+    axios.get('/leads')
       .then(response => {
         setData(response.data);
       })
@@ -15,10 +16,12 @@ function CustomerListComponent() {
       });
   }, []);
 
-  const handleDetailButtonClick = (id) => {
+  const  handleDetailButtonClick = (id) => {
     // Make API call using fetch
    console.log("handleDetailButtonClick",id)
-   window.open(`/buyer/checkout/info`, '_blank');
+   const queryString = `?id=${id}`;
+   const newPageUrl = '/buyer/checkout/info' + queryString;
+   window.open(newPageUrl, '_blank');
   };
   return (
     <div>
@@ -42,7 +45,10 @@ function CustomerListComponent() {
             <Table.Cell>{item.phone}</Table.Cell>
             <Table.Cell>{item.email}</Table.Cell>
             <Table.Cell>
-            <Button color="primary" onClick={() => handleDetailButtonClick(index)}>Detail</Button>
+              {/* <Link to="/buyer/checkout/info">Cell Content</Link> */}
+        </Table.Cell>
+            <Table.Cell>
+            <Button color="primary" onClick={() => handleDetailButtonClick(item._id)}>Detail</Button>
             </Table.Cell> {/* Add a button to each row */}
           </Table.Row>
         ))}

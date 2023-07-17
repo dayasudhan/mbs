@@ -30,7 +30,7 @@ const SegmentExampleNestedSegments = () => {
   const handleSubmit = (event) => {
     event.preventDefault()
     console.log("formData",formData)
-    axios.post('/api', formData)
+    axios.post('/leads', formData)
     .then(response => {
       console.log("response",response);
     })

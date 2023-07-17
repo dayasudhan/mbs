@@ -16,7 +16,7 @@ const CustomerForm = () => {
     event.preventDefault()
     const formData = {"name":name,"phone":phone,"email":email}
     console.log("formData",formData)
-    axios.post('/api', formData)
+    axios.post('/leads', formData)
     .then(response => {
       console.log("response",response);
     })

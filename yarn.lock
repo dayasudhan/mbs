@@ -1630,10 +1630,10 @@
     "unbzip2-stream" "1.4.3"
     "yargs" "17.7.1"
 
-"@remix-run/router@1.6.1":
-  "integrity" "sha512-YUkWj+xs0oOzBe74OgErsuR3wVn+efrFhXBWrit50kOiED+pvQe2r6MWY0iJMQU/mSVKxvNzL4ZaYvjdX+G7ZA=="
-  "resolved" "https://registry.npmjs.org/@remix-run/router/-/router-1.6.1.tgz"
-  "version" "1.6.1"
+"@remix-run/router@1.7.1":
+  "integrity" "sha512-bgVQM4ZJ2u2CM8k1ey70o1ePFXsEzYVZoWghh6WjM8p59jQ7HxzbHW4SbnWFG7V9ig9chLawQxDTZ3xzOF8MkQ=="
+  "resolved" "https://registry.npmjs.org/@remix-run/router/-/router-1.7.1.tgz"
+  "version" "1.7.1"
 
 "@semantic-ui-react/event-stack@^3.1.0", "@semantic-ui-react/event-stack@^3.1.3":
   "integrity" "sha512-FdTmJyWvJaYinHrKRsMLDrz4tTMGdFfds299Qory53hBugiDvGC0tEJf+cHsi5igDwWb/CLOgOiChInHwq8URQ=="
@@ -5857,20 +5857,20 @@
     "react-fast-compare" "^3.0.1"
     "warning" "^4.0.2"
 
-"react-router-dom@^6.11.1":
-  "integrity" "sha512-dPC2MhoPeTQ1YUOt5uIK376SMNWbwUxYRWk2ZmTT4fZfwlOvabF8uduRKKJIyfkCZvMgiF0GSCQckmkGGijIrg=="
-  "resolved" "https://registry.npmjs.org/react-router-dom/-/react-router-dom-6.11.1.tgz"
-  "version" "6.11.1"
+"react-router-dom@^6.14.1":
+  "integrity" "sha512-ssF6M5UkQjHK70fgukCJyjlda0Dgono2QGwqGvuk7D+EDGHdacEN3Yke2LTMjkrpHuFwBfDFsEjGVXBDmL+bWw=="
+  "resolved" "https://registry.npmjs.org/react-router-dom/-/react-router-dom-6.14.1.tgz"
+  "version" "6.14.1"
   dependencies:
-    "@remix-run/router" "1.6.1"
-    "react-router" "6.11.1"
+    "@remix-run/router" "1.7.1"
+    "react-router" "6.14.1"
 
-"react-router@6.11.1":
-  "integrity" "sha512-OZINSdjJ2WgvAi7hgNLazrEV8SGn6xrKA+MkJe9wVDMZ3zQ6fdJocUjpCUCI0cNrelWjcvon0S/QK/j0NzL3KA=="
-  "resolved" "https://registry.npmjs.org/react-router/-/react-router-6.11.1.tgz"
-  "version" "6.11.1"
+"react-router@6.14.1":
+  "integrity" "sha512-U4PfgvG55LdvbQjg5Y9QRWyVxIdO1LlpYT7x+tMAxd9/vmiPuJhIwdxZuIQLN/9e3O4KFDHYfR9gzGeYMasW8g=="
+  "resolved" "https://registry.npmjs.org/react-router/-/react-router-6.14.1.tgz"
+  "version" "6.14.1"
   dependencies:
-    "@remix-run/router" "1.6.1"
+    "@remix-run/router" "1.7.1"
 
 "react@*", "react@^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17 || ^18", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^17.0.2 || ^18.0.0-0", "react@^18.2.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@>=16.0.0", "react@>=16.11.0", "react@>=16.8", "react@>=16.9.0":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="

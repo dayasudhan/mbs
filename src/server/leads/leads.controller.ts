@@ -5,7 +5,8 @@ import {
   Body,
   Param,
   Delete,
-  Put
+  Put,
+  Query
 } from '@nestjs/common';
 import {
   LeadsService
@@ -17,16 +18,16 @@ import {
   UpdateLeadsDto
 } from '../dto/update-leads.dto';
 
-@Controller('')
+@Controller('leads')
 export class LeadsController {
   constructor(private readonly leadsService: LeadsService) {}
 
-  @Post('/api')
+  @Post('')
   create(@Body() createLeadsDto: CreateLeadsDto) {
     return this.leadsService.create(createLeadsDto);
   }
 
-  @Get('/api')
+  @Get('')
   findAll() {
     console.log("Leads findall")
     return this.leadsService.findAll();
@@ -36,11 +37,16 @@ export class LeadsController {
     console.log("PDF Generation")
     return this.leadsService.generatePDF();
   }
+  // @Get('/leads')
+  // findOne(@Query('id') id: string) {
+  //   console.log("id",id)
+  //   return this.leadsService.findOne(id);
+  // }
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  findOne2(@Param('id') id: string) {
+    console.log("id",id)
     return this.leadsService.findOne(id);
   }
-
   @Put(':id')
   update(@Param('id') id: string, @Body() updateLeadsDto: UpdateLeadsDto) {
     return this.leadsService.update(id, updateLeadsDto);
