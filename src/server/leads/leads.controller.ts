@@ -6,7 +6,9 @@ import {
   Param,
   Delete,
   Put,
-  Query
+  Query,
+  Req,
+  Res,
 } from '@nestjs/common';
 import {
   LeadsService
@@ -31,6 +33,17 @@ export class LeadsController {
   findAll() {
     console.log("Leads findall")
     return this.leadsService.findAll();
+  }
+  @Get('/health')
+  health( 
+    @Req() req: any,
+    @Res() res: any) {
+    console.log("Health Checking")
+    const healthStatus = {
+      status: 'healthy',
+      message: 'Service is up and running.',
+    };
+    return res.status(200).json(healthStatus);
   }
   @Get('/pdf')
   findAll2(@Query('id') id: string) {
