@@ -7,4 +7,4 @@ build:
 run:                              
   command: npm start:prod
   network:
-    port: 3000
+    port: 8080
