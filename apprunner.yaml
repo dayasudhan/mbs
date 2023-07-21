@@ -1,17 +1,8 @@
-version: 0.2
-
-phases:
-  install:
-    runtime-versions:
-      nodejs: 16
-    commands:
-      - npm install
-
-  pre_build:
-    commands:
-      - npm run build
-
-artifacts:
-  files:
-    - '**/*'
-  base-directory: dist/
+version: 1.0
+runtime: nodejs16
+build:
+  commands:    
+    build:
+      - npm install --production                                  
+run:                              
+  command: npm start
